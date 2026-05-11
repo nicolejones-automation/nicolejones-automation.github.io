@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nicole Jones — AI Automation Specialist & QA Expert</title>
+<meta name="description" content="Portfolio of Nicole Jones, AI Automation Specialist with 20+ years in QA and process improvement. Expert in n8n, Make.com, AI agents, and workflow automation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+<style>
+/* ── TOKENS ── */
+:root {
+  --bg:          #09090f;
+  --surface:     #111118;
+  --surface2:    #18181f;
+  --border:      rgba(255,255,255,0.07);
+  --accent:      #00e5a0;
+  --accent2:     #7c5cfc;
+  --accent3:     #ff6b6b;
+  --text:        #e8e8f0;
+  --muted:       #7070a0;
+  --card-glow:   rgba(0,229,160,0.06);
+  --font-head:   'Syne', sans-serif;
+  --font-body:   'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* ── GRID BACKGROUND ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 3rem;
+  background: rgba(9,9,15,0.75);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* ── SECTIONS ── */
+section { position: relative; z-index: 1; }
+
+/* ── HERO ── */
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 3rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 4rem;
+}
+
+.hero-content { flex: 1; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,229,160,0.08);
+  border: 1px solid rgba(0,229,160,0.2);
+  border-radius: 99px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s ease both;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
+}
+
+h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.2rem;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+h1 .line-accent { color: var(--accent); }
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 520px;
+  margin-bottom: 2.2rem;
+  font-weight: 300;
+  line-height: 1.7;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #09090f;
+}
+.btn-primary:hover { background: #00ffc0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,229,160,0.25); }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+.hero-visual {
+  flex: 0 0 320px;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.profile-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(0,229,160,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.profile-card::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 140px; height: 140px;
+  background: radial-gradient(circle, rgba(124,92,252,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.avatar-wrap {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  padding: 3px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-wrap img {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--surface2);
+}
+.avatar-initials {
+  font-family: var(--font-head);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.profile-name {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.profile-title {
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 1rem 0;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+.stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em; }
+
+.profile-links { display: flex; flex-direction: column; gap: 0.5rem; }
+.profile-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.profile-link:hover { background: var(--surface2); color: var(--accent); }
+.profile-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ── SECTION HEADER ── */
+.section-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 3rem;
+}
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 3rem;
+  line-height: 1.1;
+}
+.section-title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.about-text p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+.about-text p strong { color: var(--text); font-weight: 500; }
+
+.highlight-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.highlight-box p { color: var(--text); margin: 0; font-size: 0.95rem; }
+
+.about-meta { display: flex; flex-direction: column; gap: 1rem; }
+.meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.2s;
+}
+.meta-item:hover { border-color: rgba(0,229,160,0.3); }
+.meta-icon {
+  width: 36px; height: 36px;
+  background: rgba(0,229,160,0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 1rem;
+}
+.meta-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.meta-val { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+
+/* ── EXPERIENCE ── */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+.timeline-item.visible { opacity: 1; transform: translateX(0); }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 8px;
+  width: 10px; height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+  transform: translateX(-4px);
+}
+
+.job-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+}
+.job-title {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.job-badge {
+  font-size: 0.72rem;
+  background: rgba(0,229,160,0.1);
+  color: var(--accent);
+  border: 1px solid rgba(0,229,160,0.2);
+  border-radius: 99px;
+  padding: 0.2rem 0.7rem;
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.job-company { color: var(--muted); font-size: 0.88rem; margin-bottom: 0.8rem; }
+.job-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.job-desc li { margin-bottom: 0.3rem; margin-left: 1.2rem; }
+.job-desc li::marker { color: var(--accent); }
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.skill-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.skill-group:hover {
+  border-color: rgba(0,229,160,0.3);
+  transform: translateY(-3px);
+}
+.skill-group-title {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pill-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.pill {
+  font-size: 0.78rem;
+  padding: 0.3rem 0.75rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  color: var(--text);
+  font-weight: 400;
+  transition: all 0.2s;
+}
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.project-card:hover {
+  border-color: rgba(0,229,160,0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,229,160,0.1);
+}
+.project-card:hover::before { opacity: 1; }
+
+.project-type {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent2);
+}
+.project-name {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.project-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+}
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.project-tag {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(124,92,252,0.1);
+  border: 1px solid rgba(124,92,252,0.2);
+  color: var(--accent2);
+}
+.project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.project-link {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.project-link:hover { color: #00ffc0; }
+
+/* ── CERTIFICATIONS ── */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+.cert-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.cert-card:hover {
+  border-color: rgba(0,229,160,0.3);
+  transform: translateY(-2px);
+}
+.cert-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  background: rgba(0,229,160,0.08);
+}
+.cert-name {
+  font-family: var(--font-head);
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.cert-issuer { font-size: 0.76rem; color: var(--muted); }
+
+/* ── EDUCATION ── */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+.edu-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+}
+.edu-card:hover { border-color: rgba(124,92,252,0.3); }
+.edu-degree {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.edu-school { font-size: 0.85rem; color: var(--accent2); margin-bottom: 0.2rem; }
+.edu-year { font-size: 0.75rem; color: var(--muted); }
+
+/* ── CONTACT ── */
+#contact { background: var(--surface); border-top: 1px solid var(--border); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.contact-info { display: flex; flex-direction: column; gap: 1rem; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.2s;
+}
+.contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
+.contact-icon {
+  width: 38px; height: 38px;
+  background: rgba(0,229,160,0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.contact-detail { font-size: 0.72rem; color: var(--muted); }
+.contact-val { font-size: 0.9rem; font-weight: 500; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+footer a { color: var(--accent); text-decoration: none; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  #home { flex-direction: column; padding: 7rem 1.5rem 3rem; gap: 2.5rem; }
+  .hero-visual { flex: none; width: 100%; max-width: 320px; margin: 0 auto; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .section-wrap { padding: 4rem 1.5rem; }
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="#home">Nicole<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="home">
+  <div class="hero-content">
+    <div class="hero-badge">Open to new opportunities</div>
+    <h1>
+      AI Automation<br />
+      <span class="line-accent">Specialist</span> &<br />
+      QA Expert
+    </h1>
+    <p class="hero-sub">
+      20+ years turning manual chaos into intelligent workflows.
+      I build AI agents, API testing frameworks, and automation systems
+      that let teams move faster and break less.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        View My Work
+      </a>
+      <a href="https://nicolejones.tech" target="_blank" class="btn btn-outline">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Portfolio Site
+      </a>
+      <a href="https://www.linkedin.com/in/nicole-tjones-ms-mpa" target="_blank" class="btn btn-outline">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="profile-card">
+      <div class="avatar-wrap">
+        <img src="https://avatars.githubusercontent.com/u/203366022?v=4"
+             alt="Nicole Jones"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="avatar-initials" style="display:none">NJ</span>
+      </div>
+      <div class="profile-name">Nicole Jones</div>
+      <div class="profile-title">MS · MPA · AI Automation Specialist</div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Years QA</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Repos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Automations</div>
+        </div>
+      </div>
+
+      <div class="profile-links">
+        <a href="https://nicolejones.tech" target="_blank" class="profile-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          nicolejones.tech
+        </a>
+        <a href="https://www.linkedin.com/in/nicole-tjones-ms-mpa" target="_blank" class="profile-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          nicole-tjones-ms-mpa
+        </a>
+        <a href="https://github.com/nicolejones-automation" target="_blank" class="profile-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          nicolejones-automation
+        </a>
+        <a href="mailto:nicole@nicolejones.tech" class="profile-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          nicole@nicolejones.tech
+        </a>
+        <a href="tel:+14043434343" class="profile-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Atlanta, GA
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-label">01 — About</div>
+    <h2 class="section-title">The person behind<br /><em>the automation</em></h2>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I'm Nicole Jones — a <strong>QA automation engineer and AI workflow specialist</strong>
+          with over two decades of experience ensuring software quality and transforming
+          manual processes into scalable, intelligent systems.
+        </p>
+        <p>
+          My background spans government, healthcare, and tech sectors, where I've led
+          QA initiatives, built API testing frameworks, and implemented AI-powered
+          automation pipelines that reduce errors and accelerate delivery.
+        </p>
+        <div class="highlight-box">
+          <p>
+            I specialize in the intersection of <strong>quality engineering and AI automation</strong> —
+            applying tools like n8n, Make.com, and custom AI agents to create workflows
+            that were once thought impossible to automate.
+          </p>
+        </div>
+        <p>
+          Holding both an <strong>MS and MPA</strong>, I bring a systems-thinking mindset
+          to every problem — understanding not just the technical stack, but the organizational
+          and process layers that make automation actually stick.
+        </p>
+      </div>
+
+      <div class="about-meta reveal">
+        <div class="meta-item">
+          <div class="meta-icon">📍</div>
+          <div>
+            <div class="meta-label">Location</div>
+            <div class="meta-val">Atlanta, GA</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">🎓</div>
+          <div>
+            <div class="meta-label">Education</div>
+            <div class="meta-val">MS · MPA (Dual Graduate Degrees)</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">⚡</div>
+          <div>
+            <div class="meta-label">Core Focus</div>
+            <div class="meta-val">AI Automation · QA Engineering · API Testing</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">🌐</div>
+          <div>
+            <div class="meta-label">Website</div>
+            <div class="meta-val"><a href="https://nicolejones.tech" target="_blank" style="color:var(--accent);text-decoration:none">nicolejones.tech</a></div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon">🤝</div>
+          <div>
+            <div class="meta-label">Open To</div>
+            <div class="meta-val">Full-time · Contract · Consulting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-wrap">
+    <div class="section-label">02 — Experience</div>
+    <h2 class="section-title">Where I've made<br /><em>an impact</em></h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="job-header">
+          <div class="job-title">AI Automation Specialist &amp; QA Engineer</div>
+          <span class="job-badge">Current</span>
+        </div>
+        <div class="job-company">Independent / Consulting · Atlanta, GA</div>
+        <ul class="job-desc">
+          <li>Architect and deploy AI-powered workflow automation systems using n8n, Make.com, and custom AI agents that eliminate manual bottlenecks across client organizations</li>
+          <li>Build and maintain API testing frameworks using Postman and Python to validate complex integrations and ensure data integrity</li>
+          <li>Design end-to-end QA strategies for software products, including automated regression suites and CI/CD pipeline integration</li>
+          <li>Develop no-code/low-code solutions that empower non-technical teams to manage and extend automated workflows independently</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="job-header">
+          <div class="job-title">Senior QA / Process Improvement Lead</div>
+          <span class="job-badge">Previous</span>
+        </div>
+        <div class="job-company">Government &amp; Healthcare Sector · 15+ Years</div>
+        <ul class="job-desc">
+          <li>Led quality assurance programs across multi-million-dollar government and healthcare technology projects, ensuring compliance with federal standards</li>
+          <li>Developed and documented test plans, test cases, and QA processes adopted org-wide as standard practice</li>
+          <li>Partnered with cross-functional teams — developers, PMs, and stakeholders — to define acceptance criteria and reduce defect escape rates by 40%+</li>
+          <li>Spearheaded process improvement initiatives using Lean and Six Sigma methodologies, reducing cycle times and improving system reliability</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="job-header">
+          <div class="job-title">QA Analyst / Test Engineer</div>
+          <span class="job-badge">Early Career</span>
+        </div>
+        <div class="job-company">Technology Sector · 5+ Years</div>
+        <ul class="job-desc">
+          <li>Performed functional, regression, integration, and UAT testing across web and desktop applications</li>
+          <li>Created and maintained detailed defect reports and test documentation in tools including JIRA and Confluence</li>
+          <li>Introduced automation-first mindset, identifying and automating repetitive test cases to free engineering bandwidth</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="section-wrap">
+    <div class="section-label">03 — Skills</div>
+    <h2 class="section-title">My technical<br /><em>toolkit</em></h2>
+
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <span>🤖</span> AI &amp; Automation
+        </div>
+        <div class="pill-wrap">
+          <span class="pill">n8n</span>
+          <span class="pill">Make.com</span>
+          <span class="pill">Zapier</span>
+          <span class="pill">AI Agents</span>
+          <span class="pill">LLM Integration</span>
+          <span class="pill">OpenAI API</span>
+          <span class="pill">Claude API</span>
+          <span class="pill">Workflow Design</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <span>🧪</span> QA &amp; Testing
+        </div>
+        <div class="pill-wrap">
+          <span class="pill">API Testing</span>
+          <span class="pill">Postman</span>
+          <span class="pill">Selenium</span>
+          <span class="pill">Test Automation</span>
+          <span class="pill">Regression Testing</span>
+          <span class="pill">UAT</span>
+          <span class="pill">CI/CD QA</span>
+          <span class="pill">JIRA</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <span>💻</span> Languages &amp; Code
+        </div>
+        <div class="pill-wrap">
+          <span class="pill">Python</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">HTML/CSS</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Bash</span>
+          <span class="pill">JSON</span>
+          <span class="pill">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <span>🛠️</span> Tools &amp; Platforms
+        </div>
+        <div class="pill-wrap">
+          <span class="pill">GitHub</span>
+          <span class="pill">GitHub Actions</span>
+          <span class="pill">Docker</span>
+          <span class="pill">Airtable</span>
+          <span class="pill">Notion</span>
+          <span class="pill">Confluence</span>
+          <span class="pill">VS Code</span>
+          <span class="pill">Lovable</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <span>📊</span> Process &amp; Leadership
+        </div>
+        <div class="pill-wrap">
+          <span class="pill">Agile / Scrum</span>
+          <span class="pill">Lean Six Sigma</span>
+          <span class="pill">Process Improvement</span>
+          <span class="pill">Technical Writing</span>
+          <span class="pill">Stakeholder Mgmt</span>
+          <span class="pill">Team Leadership</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <span>🏛️</span> Domain Expertise
+        </div>
+        <div class="pill-wrap">
+          <span class="pill">Government Tech</span>
+          <span class="pill">Healthcare IT</span>
+          <span class="pill">Compliance</span>
+          <span class="pill">Data Quality</span>
+          <span class="pill">Digital Transformation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-wrap">
+    <div class="section-label">04 — Projects</div>
+    <h2 class="section-title">Things I've<br /><em>built</em></h2>
+
+    <div class="projects-grid">
+
+      <a href="https://github.com/nicolejones-automation/automation-portfolio" target="_blank" class="project-card reveal">
+        <div class="project-type">Portfolio / Showcase</div>
+        <div class="project-name">Automation Portfolio</div>
+        <p class="project-desc">
+          A curated showcase of automation workflows, API test suites, and AI-powered solutions
+          demonstrating real-world use cases across industries. Includes documented templates
+          ready to fork and deploy.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Postman</span>
+          <span class="project-tag">n8n</span>
+        </div>
+        <div class="project-footer">
+          <span>github.com/nicolejones-automation</span>
+          <span class="project-link">View Repo →</span>
+        </div>
+      </a>
+
+      <div class="project-card reveal">
+        <div class="project-type">AI Automation</div>
+        <div class="project-name">AI-Powered Workflow Engine</div>
+        <p class="project-desc">
+          Multi-step AI agent pipelines built with n8n and Make.com that autonomously
+          process data, trigger actions across SaaS tools, and surface insights via
+          Slack and email — replacing hours of manual coordination.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">n8n</span>
+          <span class="project-tag">Make.com</span>
+          <span class="project-tag">OpenAI</span>
+          <span class="project-tag">Webhooks</span>
+        </div>
+        <div class="project-footer">
+          <span>AI Automation</span>
+          <a href="https://nicolejones.tech" target="_blank" class="project-link">Portfolio →</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-type">QA Engineering</div>
+        <div class="project-name">API Testing Framework</div>
+        <p class="project-desc">
+          End-to-end API testing suite covering authentication flows, CRUD operations,
+          error handling, and data validation. Built with Postman collections and Python
+          scripts integrated into CI/CD pipelines.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Postman</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">REST APIs</span>
+          <span class="project-tag">CI/CD</span>
+        </div>
+        <div class="project-footer">
+          <span>QA · Testing</span>
+          <a href="https://nicolejones.tech" target="_blank" class="project-link">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-type">Web Application</div>
+        <div class="project-name">Automation Showcase App</div>
+        <p class="project-desc">
+          A live web application demonstrating automation capabilities and portfolio highlights.
+          Built with modern tooling and deployed to production, serving as an interactive
+          resume for technical recruiter conversations.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">HTML/CSS</span>
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">Lovable</span>
+        </div>
+        <div class="project-footer">
+          <span>Live App</span>
+          <a href="https://nicolejonesautomationshowcase.lovable.app" target="_blank" class="project-link">Live Demo →</a>
+        </div>
+      </div>
+
+      <a href="https://github.com/nicolejones-automation/n8n" target="_blank" class="project-card reveal">
+        <div class="project-type">Open Source Contribution</div>
+        <div class="project-name">n8n Workflow Platform</div>
+        <p class="project-desc">
+          Forked and explored the n8n workflow automation engine — a fair-code platform
+          with 400+ integrations and native AI capabilities. Used as the foundation for
+          custom automation solutions.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">TypeScript</span>
+          <span class="project-tag">n8n</span>
+          <span class="project-tag">Open Source</span>
+        </div>
+        <div class="project-footer">
+          <span>Open Source</span>
+          <span class="project-link">View Fork →</span>
+        </div>
+      </a>
+
+      <div class="project-card reveal">
+        <div class="project-type">Process Improvement</div>
+        <div class="project-name">QA Documentation Hub</div>
+        <p class="project-desc">
+          Standardized QA process templates, test plan frameworks, and defect tracking
+          workflows developed from 20+ years of enterprise QA experience — packaged
+          for teams to adopt immediately.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Confluence</span>
+          <span class="project-tag">JIRA</span>
+          <span class="project-tag">Templates</span>
+        </div>
+        <div class="project-footer">
+          <span>Documentation</span>
+          <a href="https://nicolejones.tech" target="_blank" class="project-link">View Details →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section id="certifications">
+  <div class="section-wrap">
+    <div class="section-label">05 — Credentials</div>
+    <h2 class="section-title">Certifications &<br /><em>education</em></h2>
+
+    <div class="certs-grid reveal" style="margin-bottom: 3rem;">
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div>
+          <div class="cert-name">AI Automation Specialist</div>
+          <div class="cert-issuer">Workflow &amp; AI Platforms</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🧪</div>
+        <div>
+          <div class="cert-name">QA &amp; Software Testing</div>
+          <div class="cert-issuer">20+ Years Practical Experience</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🖥️</div>
+        <div>
+          <div class="cert-name">CompTIA A+ (Core 1 · 220-1101)</div>
+          <div class="cert-issuer">CompTIA</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🌐</div>
+        <div>
+          <div class="cert-name">Web Development</div>
+          <div class="cert-issuer">HTML · CSS · JavaScript</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">⚙️</div>
+        <div>
+          <div class="cert-name">API Testing &amp; Postman</div>
+          <div class="cert-issuer">REST API Automation</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔐</div>
+        <div>
+          <div class="cert-name">Cybersecurity Foundations</div>
+          <div class="cert-issuer">Awesome Hacking Curriculum</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--font-head);font-size:1.1rem;font-weight:700;margin-bottom:1.2rem;color:var(--muted)">Education</h3>
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <div class="edu-degree">Master of Science (MS)</div>
+        <div class="edu-school">Graduate Studies</div>
+        <div class="edu-year">Technology &amp; Systems Focus</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Master of Public Administration (MPA)</div>
+        <div class="edu-school">Graduate Studies</div>
+        <div class="edu-year">Policy, Leadership &amp; Process</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor's Degree</div>
+        <div class="edu-school">Undergraduate Institution</div>
+        <div class="edu-year">Foundation Studies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-label">06 — Contact</div>
+    <h2 class="section-title">Let's build<br /><em>something together</em></h2>
+
+    <div class="contact-grid">
+      <div class="reveal">
+        <p style="color:var(--muted);margin-bottom:1.5rem;font-weight:300;line-height:1.8">
+          Whether you're looking for a QA automation engineer, an AI workflow architect,
+          or a seasoned technical consultant — I'd love to hear about your project.
+          Let's connect.
+        </p>
+        <div class="contact-info">
+          <a href="https://www.linkedin.com/in/nicole-tjones-ms-mpa" target="_blank" class="contact-link">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail">LinkedIn</div>
+              <div class="contact-val">nicole-tjones-ms-mpa</div>
+            </div>
+          </a>
+          <a href="https://github.com/nicolejones-automation" target="_blank" class="contact-link">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail">GitHub</div>
+              <div class="contact-val">nicolejones-automation</div>
+            </div>
+          </a>
+          <a href="https://nicolejones.tech" target="_blank" class="contact-link">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail">Portfolio</div>
+              <div class="contact-val">nicolejones.tech</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal" style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:2rem;">
+        <h3 style="font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:1.5rem">Quick intro</h3>
+        <div style="display:flex;flex-direction:column;gap:0.8rem">
+          <div style="display:flex;gap:0.8rem;align-items:flex-start">
+            <span style="color:var(--accent);font-size:1.1rem">✓</span>
+            <span style="color:var(--muted);font-size:0.88rem">20+ years in QA across government and enterprise tech</span>
+          </div>
+          <div style="display:flex;gap:0.8rem;align-items:flex-start">
+            <span style="color:var(--accent);font-size:1.1rem">✓</span>
+            <span style="color:var(--muted);font-size:0.88rem">Specialist in n8n, Make.com, and AI agent workflows</span>
+          </div>
+          <div style="display:flex;gap:0.8rem;align-items:flex-start">
+            <span style="color:var(--accent);font-size:1.1rem">✓</span>
+            <span style="color:var(--muted);font-size:0.88rem">API testing frameworks with Postman and Python</span>
+          </div>
+          <div style="display:flex;gap:0.8rem;align-items:flex-start">
+            <span style="color:var(--accent);font-size:1.1rem">✓</span>
+            <span style="color:var(--muted);font-size:0.88rem">Dual graduate degrees: MS + MPA</span>
+          </div>
+          <div style="display:flex;gap:0.8rem;align-items:flex-start">
+            <span style="color:var(--accent);font-size:1.1rem">✓</span>
+            <span style="color:var(--muted);font-size:0.88rem">Based in Atlanta, GA — open to remote roles</span>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+          <a href="https://www.linkedin.com/in/nicole-tjones-ms-mpa" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center">
+            Connect on LinkedIn →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2025 Nicole Jones · Built with care ·
+    <a href="https://nicolejones.tech">nicolejones.tech</a> ·
+    <a href="https://github.com/nicolejones-automation">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/nicole-tjones-ms-mpa">LinkedIn</a>
+  </p>
+</footer>
+
+<!-- ── SCROLL REVEAL ── -->
+<script>
+const revealEls = document.querySelectorAll('.reveal, .timeline-item');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
