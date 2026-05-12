@@ -71,7 +71,7 @@ I sit at the intersection of **quality engineering** and **AI automation** — u
 
 | | |
 |---|---|
-| 🗓️ **20+ years** in QA & software testing | 🤖 **AI automation** specialist since 2022 |
+| 🗓️ **20+ years** in Quality Assurance | 🤖 **AI automation** specialist since 2025 |
 | 🧪 **API testing** frameworks built & deployed | 🌐 **Remote-ready** based in Atlanta, GA |
 | 📚 **MS + MPA** dual graduate degrees | 🔧 **n8n · Make.com · Postman · Python** daily stack |
 
